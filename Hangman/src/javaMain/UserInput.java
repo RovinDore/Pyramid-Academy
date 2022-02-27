@@ -1,10 +1,8 @@
-package javaMain;
-
 import java.util.Scanner;
 
 public class UserInput {
 
-    public static String getString(){
+    public String getString(){
         String name = "";
         while (name == ""){
             try{
@@ -17,7 +15,7 @@ public class UserInput {
         return name;
     }
 
-    public static Integer getChoice(){
+    public Integer getChoice(){
         int choice = 0;
         while (choice == 0){
             try{

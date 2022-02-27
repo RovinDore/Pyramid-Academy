@@ -1,4 +1,5 @@
-package javaMain;
+
+import javaMain.UserInput;
 
 import java.util.HashMap;
 
@@ -11,9 +12,10 @@ public class Main {
         System.out.println("***************************");
         System.out.println(("\nWould you like to play? (y/n) \n"));
         String playing = "";
+        UserInput getInput = new UserInput();
 
         try {
-            playing = UserInput.getString();
+            playing = getInput.getString();
         } catch(Exception e){
             System.out.println("Something went wrong getting input " + e.getMessage());
         }
@@ -34,6 +36,7 @@ public class Main {
         HashMap<Character, Integer> alreadyTried = new HashMap<>();
         boolean gotWord = false;
         final int maxTries = hangmanGame.getMaxTries();
+        UserInput getInput = new UserInput();
 
         while (hangmanGame.getNumTries() <= maxTries){
             drawStickMan(hangmanGame.getNumTries());
@@ -46,16 +49,17 @@ public class Main {
                 break;
             }
 
+            System.out.print("Word: ");
             hangmanGame.hangWordBuilder();
             if(alreadyTried.size() > 0) hangmanGame.missedWordBuilder(alreadyTried);
 
             System.out.println("Take a guess. \n");
 
-            String guessCharacter = UserInput.getString();
+            String guessCharacter = getInput.getString();
             char userGuess = guessCharacter.charAt(0);
             if(alreadyTried.get(userGuess) == null){
                 if(!hangmanGame.wordContains(userGuess)){
-                    System.out.println("Wrong, there are no '" + userGuess + "'\n");
+                    System.out.println("Wrong, there aren't any '" + userGuess + "'\n");
                     hangmanGame.addTry();
                 }
                 alreadyTried.put(guessCharacter.charAt(0), 1);

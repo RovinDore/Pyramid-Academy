@@ -1,25 +1,43 @@
-package Test;
-
 import org.junit.jupiter.api.*;
-import static org.junit.Assert.*;
-
-import javaMain.Hangman;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class HangmanTest {
-    Hangman m = new Hangman();
+    Hangman game = new Hangman();
 
     @Test
-    private void getRandomWord(){
-        assertNotEquals("", m.choseWord());
+    void getRandomWord(){
+        assertNotEquals("", game.randomWord);
     }
 
     @Test
-    private void checkStatus(){
-        assertEquals(false, m.checkStatus());
+    void choseWord(){
+        assertNotEquals("", game.choseWord());
     }
 
     @Test
-    private void wordContains(){
-        assertEquals(false, m.wordContains('c'));
+    void checkStatus(){
+        assertEquals(false, game.checkStatus());
+    }
+
+    @Test
+    void wordContains(){
+        assertEquals(false, game.wordContains('c'));
+    }
+
+    @Test
+    void getTries(){
+        assertEquals(0, game.getNumTries());
+    }
+
+    @Test
+    void addTry(){
+        game.addTry();
+        game.addTry();
+        assertEquals(2, game.numTries);
+    }
+
+    @Test
+    void getMaxTry(){
+        assertEquals(6, game.getMaxTries());
     }
 }

@@ -1,4 +1,4 @@
-package javaMain;
+//package javaMain;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -28,11 +28,14 @@ public class Hangman {
         this.numTries = 0;
     }
 
+    //Getters & Setters
+//    public int addTry(){ return ++this.numTries; }
     public void addTry(){ ++this.numTries; }
     public int getNumTries(){ return this.numTries; }
     public String getRandomWord(){ return this.randomWord; }
     public int getMaxTries(){ return this.maxTries; }
 
+    //Methods
     public String choseWord(){
         Random wordIndex = new Random();
         String finalWord = WORDS[wordIndex.nextInt(WORDS.length)];
