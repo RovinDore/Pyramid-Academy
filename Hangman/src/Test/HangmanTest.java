@@ -6,7 +6,7 @@ public class HangmanTest {
 
     @Test
     void getRandomWord(){
-        assertNotEquals("", game.randomWord);
+        assertNotEquals("", game.getRandomWord());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class HangmanTest {
     void addTry(){
         game.addTry();
         game.addTry();
-        assertEquals(2, game.numTries);
+        assertEquals(2, game.getNumTries());
     }
 
     @Test

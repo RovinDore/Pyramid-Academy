@@ -18,9 +18,9 @@ public class Hangman {
             "TRANSIENT", "TRUE", "TRY", "VOID", "VOLATILE", "WHILE"
     };
 
-    public String randomWord;
-    public int numTries;
-    public final int maxTries = 6;
+    private String randomWord;
+    private int numTries;
+    private final int maxTries = 6;
     private char[] hangWord, randomWordCharSet;
 
     public Hangman(){
@@ -29,7 +29,6 @@ public class Hangman {
     }
 
     //Getters & Setters
-//    public int addTry(){ return ++this.numTries; }
     public void addTry(){ ++this.numTries; }
     public int getNumTries(){ return this.numTries; }
     public String getRandomWord(){ return this.randomWord; }
