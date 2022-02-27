@@ -19,10 +19,8 @@ public class UserInput {
 
     public static Integer getChoice(){
         int choice = 0;
-        boolean err = false;
         while (choice == 0){
             try{
-
                 Scanner myObj = new Scanner(System.in);
                 choice = myObj.nextInt();
             } catch (Exception e){

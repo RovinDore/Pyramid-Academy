@@ -3,13 +3,23 @@ package Test;
 import org.junit.jupiter.api.*;
 import static org.junit.Assert.*;
 
-import javaMain.Main;
+import javaMain.Hangman;
 
 public class HangmanTest {
-    Main m = new Main();
+    Hangman m = new Hangman();
 
     @Test
-    private void testz(){
-        assertNotEquals("", Main.choseWord());
+    private void getRandomWord(){
+        assertNotEquals("", m.choseWord());
+    }
+
+    @Test
+    private void checkStatus(){
+        assertEquals(false, m.checkStatus());
+    }
+
+    @Test
+    private void wordContains(){
+        assertEquals(false, m.wordContains('c'));
     }
 }
