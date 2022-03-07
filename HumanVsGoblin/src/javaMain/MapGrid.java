@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class MapGrid {
-    int size, gridSize;
+    int size = 5, gridSize;
     private final ArrayList<GridSpot> layout = new ArrayList<>();
     private ArrayList<Human> humans = new ArrayList<>();
     private final ArrayList<GridSpot> treasureDrops = new ArrayList<>();
@@ -13,8 +13,7 @@ public class MapGrid {
     public boolean gameOver = false;
     private final Random rand = new Random();
 
-    public MapGrid(int size){
-        this.size = size;
+    public MapGrid(){
         this.gridSize = size * size;
         IntStream.rangeClosed(0,gridSize - 1).forEach(land -> layout.add(defaultLand));
 

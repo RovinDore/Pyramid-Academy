@@ -3,7 +3,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestGameMap {
-    MapGrid grid = new MapGrid(5);
+    MapGrid grid = new MapGrid();
     Human Adam = new Human(0);
 
     @Test

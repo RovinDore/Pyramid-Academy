@@ -9,7 +9,7 @@ public class HVGGame {
     }
 
     public void play(){
-        MapGrid grid            = new MapGrid(5);
+        MapGrid grid            = new MapGrid();
         UserInput getInput      = new UserInput();
 
         while(!grid.gameOver){
