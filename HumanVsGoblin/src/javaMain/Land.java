@@ -1,12 +1,12 @@
-public class Bush extends GridSpot {
+public class Land extends GridSpot {
     static String emoji = "\uD83C\uDF33";
 
-    public Bush(int index){
+    public Land(int index){
         super(index);
         this.setSpotType(emoji);
     }
 
-    public Bush(){}
+    public Land(){}
 
     @Override
     public String toString(){

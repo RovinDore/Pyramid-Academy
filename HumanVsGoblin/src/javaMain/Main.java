@@ -16,7 +16,11 @@ public class Main {
         System.out.println("n - North \ns - South \nw - Left \ne - Right");
 
         HVGGame game = new HVGGame(playerName);
-        game.play();
+        try{
+            game.play();
+        } catch (Exception e){
+            System.out.println("Something went wrong! " + e.getMessage());
+        }
 
     }
 }

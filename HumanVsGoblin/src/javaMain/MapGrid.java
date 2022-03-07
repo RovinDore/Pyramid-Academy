@@ -7,9 +7,9 @@ import java.util.stream.IntStream;
 public class MapGrid {
     int size = 5, gridSize;
     private final ArrayList<GridSpot> layout = new ArrayList<>();
-    private ArrayList<Human> humans = new ArrayList<>();
-    private final ArrayList<GridSpot> treasureDrops = new ArrayList<>();
-    private final Bush defaultLand = new Bush();
+    private ArrayList<Human> entities = new ArrayList<>();
+    private final ArrayList<TreasureChest> treasureDrops = new ArrayList<>();
+    private final Land defaultLand = new Land();
     public boolean gameOver = false;
     private final Random rand = new Random();
 
@@ -21,18 +21,18 @@ public class MapGrid {
         Random rand             = new Random();
         ArrayList<Goblin> goblins = new ArrayList<>();
 
-        for(int i = 0; i < 1; i++) goblins.add(new Goblin(rand.nextInt(gridSize)));
+        for(int i = 0; i < 1; i++) goblins.add(new Goblin(rand.nextInt(gridSize) + 1));
         goblins.forEach(gobby -> addToGrid(gobby));
         addToGrid(Adam).updateMapGrid();
     }
 
     public MapGrid addToGrid(Human man){
-        humans.add(man);
+        entities.add(man);
         return this;
     }
 
     public Human findHuman(){
-        for(Human obj: humans) {
+        for(Human obj: entities) {
             if (obj.toString() == Human.emoji) return obj;
         }
         return null;
@@ -40,7 +40,7 @@ public class MapGrid {
 
     public MapGrid pursuePlayer(){
         Human toFollow = findHuman();
-        for(Human obj: humans){
+        for(Human obj: entities){
             if(obj.toString() == Goblin.emoji){
                 Goblin gobby = (Goblin)obj;
                 gobby.pursuePlayer(toFollow);
@@ -52,6 +52,7 @@ public class MapGrid {
 
     public MapGrid movePlayer(String direction){
         Human toMove = findHuman();
+        if (toMove == null) return this;
         switch (direction){
             case "n":
                 toMove.moveNorth();
@@ -84,33 +85,47 @@ public class MapGrid {
     }
 
     public MapGrid updateMapGrid(){
-        IntStream.rangeClosed(0,gridSize - 1).forEach(land -> layout.set(land, defaultLand));
+        IntStream.rangeClosed(0,gridSize - 1).forEach(land -> setGridSpot(land, defaultLand));
         Outcome anyConflicts = checkCombat();
         if(anyConflicts == Outcome.GoblinDies) addToGrid(new Goblin(rand.nextInt(gridSize - 1)));
-        if(treasureDrops.size() > 0) treasureDrops.forEach(treasure -> setGridSpot(treasure.getPosition(), treasure));
-        humans.forEach(h -> setGridSpot(h.getPosition(), h));
+        entities.forEach(h -> setGridSpot(h.getPosition(), h));
+        updateTreasures();
         return this;
+    }
+
+    public void updateTreasures(){
+        if(treasureDrops.size() > 0){
+            ArrayList<TreasureChest> toBeRemoved = new ArrayList<>();
+            treasureDrops.forEach(treasure -> {
+                if (getGridSpot(treasure.getPosition()).toString().equals(Human.emoji)) {
+                    findHuman().addPoints(treasure.getPoints());
+                    System.out.println("You gained " + (int) treasure.getPoints() + " points!");
+                    toBeRemoved.add(treasure);
+                } else setGridSpot(treasure.getPosition(), treasure);
+            });
+            toBeRemoved.forEach(t -> treasureDrops.remove(t));;
+        }
     }
 
     public Outcome checkCombat(){
         HashMap<Integer, Integer> duplicates = new HashMap<>(); //Mapgrid position, Position in humanlist
         Outcome combatOutcome = Outcome.Peace;
-        for(int i = 0; i < humans.size(); i++){
-            Human person = humans.get(i);
+        for(int i = 0; i < entities.size(); i++){
+            Human person = entities.get(i);
             if(duplicates.get(person.getPosition()) == null) duplicates.put(person.getPosition(), i);
             else{
                 combatOutcome = person.combat();
 
                 switch (combatOutcome){
                     case HumanDies:
-                        System.out.println("Human dies \n");
+                        System.out.println("You died!!");
                         this.gameOver = true;
-                        this.humans = humans.stream().filter(h -> h.toString() != Human.emoji ).collect(Collectors.toCollection(ArrayList::new));
+//                        this.entities = entities.stream().filter(h -> h.toString() != Human.emoji ).collect(Collectors.toCollection(ArrayList::new));
                         break;
                     case GoblinDies:
-                        System.out.println("Goblin dies \n");
+                        System.out.println("The Goblin died!!");
                         int newRanSpot = rand.nextInt(gridSize - 1);
-                        this.humans = humans.stream().filter(h -> h.toString() != Goblin.emoji ).collect(Collectors.toCollection(ArrayList::new));
+                        this.entities = entities.stream().filter(h -> h.toString() != Goblin.emoji ).collect(Collectors.toCollection(ArrayList::new));
                         TreasureChest newDrop = new TreasureChest(newRanSpot);
                         treasureDrops.add(newDrop);
                         break;
@@ -123,12 +138,17 @@ public class MapGrid {
         return combatOutcome;
     }
 
+    public double getPlayerPoints(){
+        return findHuman().getPoints();
+    }
+
     public GridSpot getGridSpot(int index){
         return layout.get(index);
     }
 
-    public GridSpot setGridSpot(int index, GridSpot spot){
-        return layout.set(index, spot);
+    public void setGridSpot(int index, GridSpot spot){
+        layout.set(index, spot);
+//        return this;
     }
 
     @Override
