@@ -41,8 +41,7 @@ public class TestGameMap {
     void testPursuePlayer(){
         MapGrid temp = grid;
         Goblin gobby = new Goblin(5);
-        grid.addToGrid(gobby);
-        grid.pursuePlayer();
+        grid.addToGrid(gobby).pursuePlayer();
         assertEquals(4, gobby.getPosition());
     }
 

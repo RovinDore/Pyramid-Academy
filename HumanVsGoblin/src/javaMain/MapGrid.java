@@ -21,7 +21,7 @@ public class MapGrid {
         Random rand             = new Random();
         ArrayList<Goblin> goblins = new ArrayList<>();
 
-        for(int i = 0; i < 2; i++) goblins.add(new Goblin(rand.nextInt(gridSize)));
+        for(int i = 0; i < 1; i++) goblins.add(new Goblin(rand.nextInt(gridSize)));
         goblins.forEach(gobby -> addToGrid(gobby));
         addToGrid(Adam).updateMapGrid();
     }
