@@ -1,5 +1,6 @@
-import java.util.*;
-import java.util.function.Supplier;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.HashMap;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -103,12 +104,12 @@ public class MapGrid {
 
                 switch (combatOutcome){
                     case HumanDies:
-                        System.out.println("Human dies");
+                        System.out.println("Human dies \n");
                         this.gameOver = true;
                         this.humans = humans.stream().filter(h -> h.toString() != Human.emoji ).collect(Collectors.toCollection(ArrayList::new));
                         break;
                     case GoblinDies:
-                        System.out.println("Goblin dies");
+                        System.out.println("Goblin dies \n");
                         int newRanSpot = rand.nextInt(gridSize - 1);
                         this.humans = humans.stream().filter(h -> h.toString() != Goblin.emoji ).collect(Collectors.toCollection(ArrayList::new));
                         TreasureChest newDrop = new TreasureChest(newRanSpot);

@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Random;
-
 public class HVGGame {
     private int numMoves, damageDone;
     private String playerName;
