@@ -7,9 +7,29 @@ public class TestGameMap {
     Human Adam = new Human(0);
 
     @Test
-    void testPlayerMove(){
+    void testPlayerMoveRight(){
         grid.movePlayer("e");
         assertEquals(1, grid.findHuman().getPosition());
+    }
+
+    @Test
+    void testPlayerMoveLeft(){
+        grid.findHuman().setPosition(5);
+        grid.movePlayer("w");
+        assertEquals(4, grid.findHuman().getPosition());
+    }
+
+    @Test
+    void testPlayerMoveNorth(){
+        grid.findHuman().setPosition(20);
+        grid.movePlayer("n");
+        assertEquals(15, grid.findHuman().getPosition());
+    }
+
+    @Test
+    void testPlayerMoveSouth(){
+        grid.movePlayer("s");
+        assertEquals(5, grid.findHuman().getPosition());
     }
 
     @Test
@@ -29,7 +49,8 @@ public class TestGameMap {
     @Test
     void testCombat(){
         grid.addToGrid(new Goblin(0));
-        assertNotEquals(Outcome.Peace, grid.checkCombat());
+        Outcome result = grid.checkCombat();
+        assertNotEquals(Outcome.Peace, result);
     }
 
     @Test
