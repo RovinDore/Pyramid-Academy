@@ -26,7 +26,7 @@ public class HangmanFunc {
 
     private String randomWord;
     private int numTries;
-    private final int maxTries = 5;
+    private final int maxTries = 6;
     private List<String> randomWordCharSet, hangWord;
     private int iterate = 0, playerScore = 100, highestScore = 0;
     private String playerName = "";
