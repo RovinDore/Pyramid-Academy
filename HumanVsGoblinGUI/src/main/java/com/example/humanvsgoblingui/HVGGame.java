@@ -30,7 +30,7 @@ public class HVGGame {
     @FXML
     public void initialize() {
         //Init game with map objects
-        pane.getChildren().forEach(c -> pane.getChildren().remove(c));
+        if(pane != null) pane.getChildren().forEach(c -> pane.getChildren().remove(c));
         addLand();
         addGoblins(6);
         addHuman();
@@ -182,7 +182,7 @@ public class HVGGame {
 
     private Outcome combat(){
         int randNum = (int)(Math.random() * 100) + 1;
-        if(randNum % 2 == 0 || randNum % 5 == 0) return Outcome.GoblinDies;
+        if(randNum % 2 == 0 || randNum % 3 == 0 || randNum % 5 == 0) return Outcome.GoblinDies;
         else return Outcome.HumanDies;
     }
 
@@ -231,17 +231,23 @@ public class HVGGame {
     }
 
     private void attackWarrior(){
-        goblins.forEach(this::determineEnemyMove);
-        checkConflict();
+        try{
+            goblins.forEach(this::determineEnemyMove);
+            checkConflict();
+        } catch (Exception e){
+            System.out.println("Something went wrong");
+        }
     }
 
 
     //Testing methods
-
-
     public void setWarrior(Human warrior) {
         this.warrior = warrior;
     }
+
+    public Human getWarrior() { return this.warrior; }
+
+    public ArrayList<Goblin> getGoblins(){ return this.goblins; }
 
     public ArrayList<TreasureChest> getTreasureDrops() {
         return treasureDrops;

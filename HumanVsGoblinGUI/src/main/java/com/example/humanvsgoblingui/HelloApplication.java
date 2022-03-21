@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -24,17 +25,10 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("HVG.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Welcome.fxml"));
         scene = new Scene(fxmlLoader.load());
         this.stage = stage;
-        HVGGame GameControl = fxmlLoader.getController();
         stage.setTitle("Human Vs Goblin");
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                GameControl.moveEntity(keyEvent);
-            }
-        });
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
@@ -55,6 +49,20 @@ public class HelloApplication extends Application {
     public void start(ActionEvent event) throws IOException {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         start(stage);
+    }
+
+    public void startGame(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("HVG.fxml"));
+        scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        HVGGame GameControl = fxmlLoader.getController();
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) { GameControl.moveEntity(keyEvent); }
+        });
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 
     public void setPointsAmount(int points) {
