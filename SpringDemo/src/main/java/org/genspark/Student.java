@@ -6,7 +6,16 @@ public class Student {
     private int id;
     private String name;
     private List<Phone> ph;
+    private List<Phone> sourceList;
     private Address add;
+
+    public List<Phone> getSourceList() {
+        return sourceList;
+    }
+
+    public void setSourceList(List<Phone> sourceList) {
+        this.sourceList = sourceList;
+    }
 
     public int getId() { return id; }
 

@@ -25,14 +25,29 @@
         <property name="city" value="City" />
         <property name="state" value="State" />
         <property name="country" value="Country" />
-        <property name="zipcode" value="Zipcode" />
+        <property name="zipcode" value="0000" />
     </bean>
 
     <bean id="Student" class="org.genspark.Student">
         <property name="add" ref="Address" />
-        <property name="ph" ref="Phone" />
-        <property name="name" value="" />
-        <property name="id" value="0" />
+        <property name="ph">
+            <list>
+                <ref bean="Phone" />
+            </list>
+        </property>
+        <property name="name" value="Name" />
+        <property name="id" value="0000" />
     </bean>
+
+<!--    <bean id="Phone" class="org.genspark.Phone">-->
+<!--        <property name="mob">-->
+<!--            <list>-->
+<!--                <value>pechorin@hero.org</value>-->
+<!--                <value>raskolnikov@slums.org</value>-->
+<!--                <value>stavrogin@gov.org</value>-->
+<!--                <value>porfiry@gov.org</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
     <!--  End  -->
 </beans>
