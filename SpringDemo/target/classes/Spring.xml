@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
+
+    <!-- Contstructor injection   -->
+    <bean id="Vehicle" class="org.genspark.Car">
+        <constructor-arg index="0" ref="Tyre" />
+    </bean>
+
+    <bean id="Tyre" class="org.genspark.Tyre">
+        <constructor-arg index="0" value="Dunlop" />
+        <constructor-arg index="1" value="12" />
+    </bean>
+    <!--    End -->
+
+    <bean id="Phone" class="org.genspark.Phone">
+        <property name="mob" value="MOB" />
+    </bean>
+
+    <bean id="Address" class="org.genspark.Address">
+        <property name="city" value="City" />
+        <property name="state" value="State" />
+        <property name="country" value="Country" />
+        <property name="zipcode" value="Zipcode" />
+    </bean>
+
+    <bean id="Student" class="org.genspark.Student">
+        <property name="add" ref="Address" />
+        <property name="ph" ref="Phone" />
+        <property name="name" value="" />
+        <property name="id" value="0" />
+    </bean>
+
+        <!--  Getter and Setter injection  -->
+<!--    <bean id="Vehicle" class="org.genspark.Bike">-->
+<!--        <property name="tyre" ref="Tyre" />-->
+<!--    </bean>-->
+
+<!--    <bean id="Tyre" class="org.genspark.Tyre">-->
+<!--        <property name="brand" value="Dunlop" />-->
+<!--        <property name="size" value="17" />-->
+<!--    </bean>-->
+    <!--  End  -->
+</beans>
