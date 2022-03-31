@@ -39,15 +39,5 @@
         <property name="id" value="0000" />
     </bean>
 
-<!--    <bean id="Phone" class="org.genspark.Phone">-->
-<!--        <property name="mob">-->
-<!--            <list>-->
-<!--                <value>pechorin@hero.org</value>-->
-<!--                <value>raskolnikov@slums.org</value>-->
-<!--                <value>stavrogin@gov.org</value>-->
-<!--                <value>porfiry@gov.org</value>-->
-<!--            </list>-->
-<!--        </property>-->
-<!--    </bean>-->
     <!--  End  -->
 </beans>

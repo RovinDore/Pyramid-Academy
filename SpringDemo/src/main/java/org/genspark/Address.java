@@ -1,10 +1,13 @@
 package org.genspark;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Address {
-    private String city;
-    private String state;
-    private String country;
-    private String zipcode;
+    private String city = "city";
+    private String state = "state";
+    private String country = "country";
+    private String zipcode = "zip";
 
     public String getCity() {
         return city;
