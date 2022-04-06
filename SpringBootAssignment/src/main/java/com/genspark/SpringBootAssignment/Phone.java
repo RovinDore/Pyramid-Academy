@@ -1,4 +1,4 @@
-package org.genspark;
+package com.genspark.SpringBootAssignment;
 
 import org.springframework.stereotype.Component;
 

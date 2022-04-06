@@ -1,6 +1,13 @@
 package com.genspark.SpringBootAssignment.Entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="employees")
 public class Employee {
+    @Id
+    @Column(name = "c_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int employeeId;
     private String name;
 

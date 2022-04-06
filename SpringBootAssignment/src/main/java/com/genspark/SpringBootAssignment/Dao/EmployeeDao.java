@@ -1,2 +1,10 @@
-package com.genspark.SpringBootAssignment.Dao;public interface EmployeeDao {
+package com.genspark.SpringBootAssignment.Dao;
+
+import com.genspark.SpringBootAssignment.Entity.Employee;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface EmployeeDao extends JpaRepository<Employee, Integer> {
+
 }
