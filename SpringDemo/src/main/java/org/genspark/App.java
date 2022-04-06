@@ -13,8 +13,8 @@ public class App
 
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        Employee obj = (Employee) context.getBean(Employee.class);
-        System.out.println(obj);
+        Alien obj = (Alien) context.getBean(Alien.class);
+        obj.show();
 
     }
 }
