@@ -14,6 +14,9 @@ public class EmployeeServiceImplementation implements EmployeeService{
     @Autowired
     private EmployeeDao employeeDao;
 
+    @Autowired
+    private EmailService emailService;
+
 //    public EmployeeServiceImplementation() {
 //        this.employeeList = new ArrayList<>();
 //        employeeList.add(new Employee(0, "John"));
@@ -37,16 +40,19 @@ public class EmployeeServiceImplementation implements EmployeeService{
 
     @Override
     public Employee updateEmployee(Employee employee) {
+        this.emailService.sendMail(employee.getEmail(), "Profile Updated", "Your profile have been updated!");
         return this.employeeDao.save(employee);
     }
 
     @Override
     public Employee addEmployee(Employee employee) {
+        this.emailService.sendMail(employee.getEmail(), "Your hired!", "Welcome to our company!");
         return this.employeeDao.save(employee);
     }
 
     @Override
     public String deleteEmployee(int id) {
+        this.emailService.sendMail(getEmployee(id).getEmail(), "Fired!", "Your fired!");
         this.employeeDao.deleteById(id);
         return "Employee Deleted!";
     }
