@@ -1,0 +1,168 @@
+{
+	"basic_info": {
+		"description_header": "Hello there",
+		"description": "👋 I'm Rovin Dore. As a passionate Developer I love coding and the excitement it brings to me. I have experience in Front end and Back end development. With over six years in the field I have learned a lot but always searching to improve myself",
+		"section_name": {
+			"about": "About me",
+			"projects": "Projects",
+			"skills": "Skills",
+			"experience": "Experience"
+		}
+	},
+	"projects": [
+		{
+			"title": "Human Vs Goblin",
+			"startDate": "2022",
+			"description": "Human Vs Goblin GUI game using OOP, JavaFx and JUnit4 Testing",
+			"images": [
+				"images/portfolio/hvg.jpg"
+			],
+			"url": "https://github.com/RovinDore/Pyramid-Academy/tree/main/HumanVsGoblinGUI",
+			"technologies": [
+				{
+					"class": "devicon-java-plain",
+					"name": "Java"
+				}
+			]
+		},
+		{
+			"title": "GOING SKN",
+			"startDate": "2020",
+			"description": "This is a rideshare mobile web application tailored to public bus drivers and private drivers.",
+			"images": [
+				"images/portfolio/goingskn/logo.png",
+				"images/portfolio/goingskn.png"
+			],
+			"url": "https://getgoingskn.com",
+			"technologies": [
+				{
+					"class": "devicon-react-original",
+					"name": "React"
+				},
+				{
+					"class": "devicon-firebase-plain",
+					"name": "Firebase"
+				},
+				{
+					"class": "devicon-redux-original",
+					"name": "Redux"
+				}
+			]
+		},
+		{
+			"title": "SKNVibes",
+			"startDate": "2016",
+			"description": "Top online news platform in federation, worked on desktop and mobile site.",
+			"images": [
+				"images/portfolio/sknvibes.png"
+			],
+			"url": "https://www.sknvibes.com",
+			"technologies": [
+				{
+					"class": "",
+					"name": "Coldfusion"
+				},
+				{
+					"class": "devicon-jquery-plain",
+					"name": "Jquery"
+				},
+				{
+					"class": "devicon-html5-plain",
+					"name": "HTML"
+				}
+			]
+		},
+		{
+			"title": "SKNIRD",
+			"startDate": "2019",
+			"description": "St. Kitts Nevis Inland Revenue Department website",
+			"images": [
+				"images/portfolio/sknird.png",
+				"images/portfolio/sknird2.png"
+			],
+			"url": "https://www.sknird.com",
+			"technologies": [
+				{
+					"class": "devicon-wordpress-plain",
+					"name": "Wordpress"
+				},
+				{
+					"class": "devicon-php-plain",
+					"name": "Php"
+				}
+			]
+		}
+	],
+	"experience": [
+		{
+			"company": "GenSpark",
+			"title": "Java Full Stack Developer",
+			"years": "02.2022 - present",
+			"icon": "fab fa-java experience-icon",
+			"mainTech": [
+				"Java"
+			],
+			"technologies": [
+				"React",
+				"AWS",
+				"Java",
+				"MySQL",
+				"Hibernate",
+				"Spring Boot",
+				"JavaFX"
+			]
+		},
+		{
+			"company": "GOING SKN",
+			"title": "Web Application",
+			"years": "12.2018 - present",
+			"icon": "fab fa-react experience-icon",
+			"mainTech": [
+				"ReactJS"
+			],
+			"technologies": [
+				"React",
+				"Google Firebase",
+				"Google Cloud",
+				"Redux",
+				"SMS",
+				"Python",
+				"PUSH Notifcation"
+			]
+		},
+		{
+			"company": "OPEN Interactive",
+			"title": "Software Developer",
+			"icon": "fas fa-code experience-icon",
+			"years": "08.2014 - 11.2021",
+			"mainTech": [
+				"Coldfusion"
+			],
+			"technologies": [
+				"REST API",
+				"Coldfusion",
+				"JavaScript",
+				"Bootstrap",
+				"PHP",
+				"React",
+				"MySQL",
+				"Mendix",
+				"Mobile App Development"
+			]
+		},
+		{
+			"company": "SKNVibes",
+			"title": "Intern",
+			"icon": "fab fa-html5 experience-icon",
+			"years": "06.2013 - 11.2013",
+			"mainTech": [],
+			"technologies": [
+				"Coldfusion",
+				"HTML",
+				"CSS",
+				"JavaScript",
+				"Wordpress"
+			]
+		}
+	]
+}

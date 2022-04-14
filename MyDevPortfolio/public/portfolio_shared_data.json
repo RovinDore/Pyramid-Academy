@@ -1,0 +1,103 @@
+{
+    "basic_info": {
+      "name": "Rovin Dore",
+      "titles": [ "Web Developer", "Database Manager", "App Developer", "Dev Team lead", "Mobile App Developer" ],
+      "social": [
+        {
+          "name": "github",
+          "url": "https://github.com/RovinDore",
+          "class": "fab fa-github"
+        }
+      ],
+      "image": "myProfileRovin.jpg"
+    },
+    "skills": {
+      "icons": [
+        {
+          "name": "HTML 5",
+          "class": "devicon-html5-plain",
+          "level": "95"
+        },
+        {
+          "name": "CSS 3",
+          "class": "devicon-css3-plain",
+          "level": "95"
+        },
+        {
+          "name": "JavaScript",
+          "class": "devicon-javascript-plain",
+          "level": "70"
+        },
+        {
+          "name": "Java",
+          "class": "devicon-java-plain",
+          "level": "70"
+        },
+        {
+          "name": "JQuery",
+          "class": "devicon-jquery-plain",
+          "level": "75"
+        },
+        {
+          "name": "React",
+          "class": "devicon-react-original",
+          "level": "80"
+        },
+        {
+          "name": "PHP",
+          "class": "devicon-php-plain",
+          "level": "90"
+        },
+        {
+          "name": "Google Cloud",
+          "class": "devicon-googlecloud-plain",
+          "level": "90"
+        },
+        {
+          "name": "AWS",
+          "class": "devicon-amazonwebservices-original",
+          "level": "60"
+        },
+        {
+          "name": "Bootstrap",
+          "class": "devicon-bootstrap-plain",
+          "level": "85"
+        },
+        {
+          "name": "Wordpress",
+          "class": "devicon-wordpress-plain",
+          "level": "70"
+        },
+        {
+          "name": "MySql",
+          "class": "devicon-mysql-plain",
+          "level": "60"
+        },
+        {
+          "name": "Spring",
+          "class": "devicon-spring-plain",
+          "level": "60"
+        },
+        {
+          "name": "Mongodb",
+          "class": "devicon-mongodb-plain",
+          "level": "60"
+        },
+        {
+          "name": "Python",
+          "class": "devicon-python-plain",
+          "level": "60"
+        },
+        {
+          "name": "Arduino",
+          "class": "devicon-arduino-plain",
+          "level": "60"
+        },
+        {
+          "name": "Raspberry Pi",
+          "class": "devicon-raspberrypi-line",
+          "level": "60"
+        }
+      ]
+    }
+  }
